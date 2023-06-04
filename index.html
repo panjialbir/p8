@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">A Day In My Life</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Yesterday</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Calender</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-primary text-white text-center py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <p class="fs-4" id="greeting",  [NAMA_KLIEN]></p>
+        </div>
+        <div class="col-lg-6">
+          <p class="fs-4" id="datetime"></p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- JavaScript to display current date, time, and greeting -->
+<script>
+  setInterval(function() {
+    var datetime = new Date();
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+    document.getElementById("datetime").textContent = datetime.toLocaleString('en-US', options);
+
+    var hour = datetime.getHours();
+    var greeting;
+
+    if (hour >= 0 && hour < 12) {
+      greeting = "Selamat pagi";
+    } else if (hour >= 12 && hour < 18) {
+      greeting = "Selamat siang";
+    } else {
+      greeting = "Selamat malam";
+    }
+
+    var name = "Panji"; // Ganti [NAMA_KLIEN] dengan nama klien sesuai kebutuhan
+    var greetingMessage = greeting + ", " + name + "!";
+    document.getElementById("greeting").textContent = greetingMessage;
+  }, 1000);
+</script>
+
+  <!-- Carousel -->
+  <div id="carouselExampleIndicators" class="carousel slide mt-3" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="image1.jpg" class="d-block w-100 h-50" alt="Image 1">
+      </div>
+      <div class="carousel-item">
+        <img src="image2.jpg" class="d-block w-100 h-50" alt="Image 2">
+      </div>
+      <div class="carousel-item">
+        <img src="image3.jpg" class="d-block w-100 h-50" alt="Image 3">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+
+  <!-- Cards -->
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card">
+          <img src="workout.png" class="card-img-top" alt="Card 1">
+          <div class="card-body">
+            <h5 class="card-title">Workout</h5>
+            <p class="card-text">Selain mengawali hari dengan sholat, awalilah hari kita dengan workout ya. Biar badan sehat meskipun ngerokok.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card">
+          <img src="mancing.jpg" class="card-img-top" alt="Card 2">
+          <div class="card-body">
+            <h5 class="card-title">Mancing</h5>
+            <p class="card-text">Mancingg dulu gaaa seeehhh. Jangan lupa sambil dengerin lagu! Iya, lagu jkt48. </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card">
+          <img src="turu.jpg" class="card-img-top" alt="Card 3">
+          <div class="card-body">
+            <h5 class="card-title">Turu</h5>
+            <p class="card-text">Hidup bagaikan pesawat kertas.
+              Terbang dan pergi membawa impian.
+              Sekuat tenaga dengan hembusan angin.
+              Terus melaju terbang.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3 mt-4">
+    <div class="container">
+      <p>&copy; 2023 Muhammad Panji Al-Biruni. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript to display current date and time -->
+  <script>
+    setInterval(function() {
+      var datetime = new Date();
+      var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+      document.getElementById("datetime").textContent = datetime.toLocaleString('en-US', options);
+    }, 1000);
+  </script>
+</body>
+</html>
